@@ -1,0 +1,127 @@
+<h1 mat-dialog-title>Analysis</h1>
+<mat-divider></mat-divider>
+<div class='loading' *ngIf='loading'>This may take a while</div>
+<mat-progress-bar mode="indeterminate" *ngIf='loading'></mat-progress-bar>
+<mat-dialog-content>
+  <mat-list>
+    <mat-list-item class='meta'>
+      <h2 matLine> {{meta.name}} </h2>
+      <p matLine>
+        <span> {{meta.symbol}} </span>
+        <span> {{meta.type}} </span>
+        <span> {{meta.exchange}} </span>
+        <span> {{meta.ipo}} </span>
+      </p>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <!-- <mat-list-item class='stats' *ngIf='dayStatsOptions && dayStats'>
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+                      [data]="lineChartData"
+                      [options]="lineChartOptions"
+                      [type]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+        <div class="flex-item">
+          <table class="table table-responsive table-condensed">
+            <tr>
+              <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
+              <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
+            </tr>
+          </table>
+          <div class="button-row">
+            <button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
+            <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
+            <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
+          </div>
+        </div>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item class='stats' *ngIf='weekStatsOptions && weekStats'>
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+                      [data]="lineChartData"
+                      [options]="lineChartOptions"
+                      [type]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+        <div class="flex-item">
+          <table class="table table-responsive table-condensed">
+            <tr>
+              <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
+              <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
+            </tr>
+          </table>
+          <div class="button-row">
+            <button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
+            <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
+            <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
+          </div>
+        </div>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item class='stats' *ngIf='monthStatsOptions && monthStats'>
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+                      [data]="lineChartData"
+                      [options]="lineChartOptions"
+                      [type]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+        <div class="flex-item">
+          <table class="table table-responsive table-condensed">
+            <tr>
+              <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
+              <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
+            </tr>
+          </table>
+          <div class="button-row">
+            <button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
+            <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
+            <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
+            <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
+          </div>
+        </div>
+      </div>
+    </mat-list-item> -->
+
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="loadDays()" *ngIf='days.length == 0'>Load Days</button>
+  <button mat-raised-button (click)="chartDayStats()" *ngIf='days.length > 0'>Days Stats</button>
+
+  <button mat-raised-button (click)="loadWeeks()" *ngIf='weeks.length == 0'>Load Weeks</button>
+  <button mat-raised-button (click)="chartWeekStats()" *ngIf='weeks.length > 0'>Weeks Stats</button>
+  
+  <button mat-raised-button (click)="loadMonths()" *ngIf='months.length == 0'>Load Months</button>
+  <button mat-raised-button (click)="chartMonthStats()" *ngIf='months.length > 0'>Months Stats</button>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

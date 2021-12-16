@@ -1,0 +1,31 @@
+.dialog {
+  height: 100%;
+  width: 100%;
+}
+
+.loading {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.meta {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+mat-dialog-content {
+  height: 100%;
+  width: 100%;
+}
+
+mat-dialog-actions {
+  width: 100%;
+}

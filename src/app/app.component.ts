@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Stock } from './types/stock.types';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'stock-client';
+  metas : Meta[] = [];
+  stock : Stock = {} as Stock;
 }
